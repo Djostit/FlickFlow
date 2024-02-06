@@ -11,25 +11,24 @@ const Home = () => {
             <p className="transition-all ease-linear mt-6 text-lg text-slate-600 text-center max-w-3xl mx-auto dark:text-slate-400">
               Типо тут короче текст напиши и будет все ок.
             </p>
-            <form
-              onSubmit={() => console.log("test")}
-              className="w-full max-w-sm text-center"
-            >
-              <div className="flex items-center border-b border-sky-500 py-2">
-                <input
-                  className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
-                  type="text"
-                  placeholder="Фильм..."
-                  aria-label="Поиск"
-                />
-                <button
-                  className="flex-shrink-0 border-transparent border-4 text-sky-500 hover:text-sky-800 text-sm py-1 px-2 rounded"
-                  type="submit"
-                >
-                  Найти
-                </button>
-              </div>
-            </form>
+            <div className="p-5 rounded bg-white">
+              <form onSubmit={() => console.log("test")}>
+                <div className="flex items-center border-b border-sky-500 py-2">
+                  <input
+                    className="bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 focus:outline-none"
+                    type="text"
+                    placeholder="Фильм..."
+                    aria-label="Поиск"
+                  />
+                  <button
+                    className="flex-shrink-0 border-transparent border-4 text-sky-500 hover:text-sky-800 text-sm py-1 px-2 rounded"
+                    type="submit"
+                  >
+                    Найти
+                  </button>
+                </div>
+              </form>
+            </div>
           </header>
         </div>
       </main>
