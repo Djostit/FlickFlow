@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using FlickFlow.Api.Service;
+using Microsoft.AspNetCore.Mvc;
 using Python.Runtime;
 
 namespace FlickFlow.Api.Controllers
@@ -7,16 +8,13 @@ namespace FlickFlow.Api.Controllers
     [ApiController]
     public class MovieController : ControllerBase
     {
+        private readonly FlickFlowPythonModule _module = FlickFlowPythonModule.Instance;
+
         [HttpGet("recommend")]
         public async Task<IActionResult> Recommend(string movieName, int numRecommendations = 10)
         {
-            PythonEngine.Initialize();
-            using (Py.GIL())
-            {
-                dynamic module = Py.Import("FlickFlow");
-                dynamic result = module.recommend(movieName, numRecommendations);
-                return Ok(result?.ToString() ?? "");
-            }
+            string result = _module.Recommend(movieName, numRecommendations);
+            return Ok(result);
         }
     }
 }
